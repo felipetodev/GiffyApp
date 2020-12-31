@@ -4,7 +4,7 @@ import { Link } from 'wouter'
 const Gifs = ({ title, id, url }) => {
     return (
         <GifStyled>
-            <Link to={`/gif/${id}`}>
+            <Link to={`/gif/${id}`} className='Gif-link'>
                 <h4>{title}</h4>
                 {/* <small>{id}</small> */}
                 <img loading='lazy' src={url} alt={title}/>
