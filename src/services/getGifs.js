@@ -1,7 +1,7 @@
-const apiKey = 'PSBv18pHagbYvIof1KR3GTY97VtgrIOG'
+import { API_KEY, API_URL } from './settings'
 
-export default function getGifs({ keyword = 'Kimetsu no Yaiba' } = {}) {
-    const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=10&offset=0&rating=g&lang=en`
+export default function getGifs({ limit = 25, keyword = 'Kimetsu no Yaiba', page = 0 } = {}) {
+    const apiURL = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${page * limit}&rating=g&lang=en`
     
     return fetch(apiURL)
       .then(res => res.ok ? res.json() : Promise.reject(res))

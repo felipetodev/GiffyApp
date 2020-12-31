@@ -1,8 +1,9 @@
+import styled from 'styled-components'
 import Gif from './Gif'
 
 const ListOfGifs = ({ gifs }) => {
     return (
-        <>
+        <ListOfGifsStyled>
             {
             gifs.map(singleGif => (
                 <Gif
@@ -13,8 +14,12 @@ const ListOfGifs = ({ gifs }) => {
                 />
             ))
             }
-        </>
+        </ListOfGifsStyled>
     )
 }
+
+const ListOfGifsStyled = styled.div`
+    min-height: 100vh;
+`
 
 export default ListOfGifs

@@ -1,7 +1,7 @@
 
 const Spinner = () => {
     return (
-        <h2>Loading...</h2>
+        <h2>Estoy cargando...</h2>
   )
 }
 
