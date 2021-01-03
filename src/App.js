@@ -5,7 +5,6 @@ import SearchResults from 'pages/SearchResults'
 import { Link, Route } from 'wouter'
 import StaticContext from 'context/StaticContext'
 import { GifsContextProvider } from 'context/GifsContext'
-import styled from 'styled-components'
 
 function App() {
   return (
@@ -18,7 +17,7 @@ function App() {
       <div className="App">
         <section className="App-content">
           <Link to='/'>
-            <LogoStyled>Giffy<span>APP 🔥</span></LogoStyled>
+            <h1>Giffy<span>APP 🔥</span></h1>
           </Link>
           <GlobalStyles />
           <GifsContextProvider>
@@ -34,29 +33,15 @@ function App() {
               component={Detail}
               path='/gif/:id'
             />
+            <Route 
+              component={() => <h1><strong>ERROR 404:</strong> ELL4 N0 T3 4M4 :/ 💔</h1>}
+              path='/404'
+            />
           </GifsContextProvider>
         </section>
       </div>
     </StaticContext.Provider>
   );
 }
-
-const LogoStyled = styled.h1`
-  display: block;
-  padding: 1rem 0;
-  font-size: 3rem;
-  color: rebeccapurple;
-  text-align: center;
-  cursor: pointer;
-
-  span {
-    color: white;
-    font-size: 1rem;
-  }
-
-  &:hover {
-    color: #52e2ca;
-  }
-`
 
 export default App;

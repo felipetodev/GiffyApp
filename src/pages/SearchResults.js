@@ -5,6 +5,7 @@ import useGifs from 'hooks/useGifs'
 import styled from 'styled-components'
 import useNearScreen from 'hooks/useNearScreen'
 import debounce from 'just-debounce-it'
+import { Helmet } from 'react-helmet'
 
 const SearchResults = ({ params }) => {
     const { keyword } = params
@@ -14,6 +15,8 @@ const SearchResults = ({ params }) => {
         externalRef: loading ? null : externalRef,
         once: false,
     })
+
+    const title = gifs ? `${gifs.length} resultados de ${keyword}` : ''
 
     // const handleNextPage = () => {
     //     setPage(prevPage => prevPage + 1)
@@ -34,6 +37,10 @@ const SearchResults = ({ params }) => {
             {loading
                 ? <Spinner />
                 : <>
+                    <Helmet>
+                        <title>{title}</title>
+                        <meta name="description" content={title} />
+                    </Helmet>
                     <TitleStyled>tu búsqueda: <span>{decodeURI(keyword)}</span> 👈</TitleStyled>
                     <ListOfGifs gifs={gifs} />
                     <div id="visor" ref={externalRef}></div>

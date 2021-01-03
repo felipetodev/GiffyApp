@@ -1,21 +1,26 @@
-import { useCallback } from 'react'
 import ListOfGifs from 'components/ListOfGifs'
 import { useLocation } from 'wouter'
 import useGifs from 'hooks/useGifs'
 import TrendingSearches from 'components/LazyTrending'
 import SearchForm from 'components/SearchForm'
+import { Helmet } from 'react-helmet'
 
 const Home = () => {
     const [ path, pushLocation ] = useLocation()
-    const { loading, gifs } = useGifs()
+    const { gifs } = useGifs()
 
-    const handleSubmit = useCallback(({ keyword }) => {
+    const handleSubmit = ({ keyword }) => {
         pushLocation(`/search/${keyword}`)
-    }, [pushLocation])
+    }
 
     return (
         <>
-            <SearchForm onSubmit={handleSubmit} />
+            <Helmet>
+                <title>Home | Giffy</title>
+            </Helmet>
+            <header>
+                <SearchForm onSubmit={handleSubmit} />
+            </header>
             <div className='app-results'>
                 <h3>Última busqueda</h3>
                 <ListOfGifs gifs={gifs} />

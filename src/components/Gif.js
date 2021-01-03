@@ -4,19 +4,26 @@ import { Link } from 'wouter'
 
 const Gif = ({ title, id, url }) => {
     return (
-        <div>
+        <GifStyled>
             <Link to={`/gif/${id}`} className='Gif-link'>
-                <GifStyled>
-                    <h4>{title}</h4>
-                    <img loading='lazy' src={url} alt={title}/>
-                </GifStyled>
+                <h4>{title}</h4>
+                <img loading='lazy' src={url} alt={title}/>
             </Link>
-        </div>
+        </GifStyled>
     )
 }
 
 const GifStyled = styled.div`
+    margin-bottom: .5rem;
+    height: 100%;
     position: relative;
+
+    a {
+        display: block;
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+    }
 
     h4 {
         text-transform: uppercase;
@@ -29,8 +36,8 @@ const GifStyled = styled.div`
     }
 
     img {
-        width: 100%;
-        display: block;
+        object-fit: cover;
+        height: 100%;
     }
 
     &:hover {
@@ -39,7 +46,7 @@ const GifStyled = styled.div`
 
         h4 {
             background: rebeccapurple;
-            color: #fff;
+            color: #fff35c;
         }
     }
 `

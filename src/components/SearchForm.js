@@ -28,7 +28,7 @@ const FormStyled = styled.form`
     
     input {
         padding: 0.5rem;
-        width: 20%;
+        width: 300px;
         text-transform: uppercase;
     }
 `
