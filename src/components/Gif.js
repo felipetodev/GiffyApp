@@ -1,25 +1,47 @@
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'wouter'
 
-const Gifs = ({ title, id, url }) => {
+const Gif = ({ title, id, url }) => {
     return (
-        <GifStyled>
+        <div>
             <Link to={`/gif/${id}`} className='Gif-link'>
-                <h4>{title}</h4>
-                {/* <small>{id}</small> */}
-                <img loading='lazy' src={url} alt={title}/>
+                <GifStyled>
+                    <h4>{title}</h4>
+                    <img loading='lazy' src={url} alt={title}/>
+                </GifStyled>
             </Link>
-        </GifStyled>
+        </div>
     )
 }
 
 const GifStyled = styled.div`
-    text-decoration: none;
+    position: relative;
 
     h4 {
         text-transform: uppercase;
-        color: #1f1f1f;
+        color: lightgreen;
+        position: absolute;
+        bottom: 0;
+        background: #1f1f1faa;
+        width: 100%;
+        padding: 0.3rem 0;
+    }
+
+    img {
+        width: 100%;
+        display: block;
+    }
+
+    &:hover {
+        cursor: pointer;
+        border: 2px solid rebeccapurple;
+
+        h4 {
+            background: rebeccapurple;
+            color: #fff;
+        }
     }
 `
 
-export default Gifs
+export default React.memo(Gif)

@@ -34,7 +34,7 @@ const SearchResults = ({ params }) => {
             {loading
                 ? <Spinner />
                 : <>
-                    <h3>{decodeURI(keyword)}</h3>
+                    <TitleStyled>tu búsqueda: <span>{decodeURI(keyword)}</span> 👈</TitleStyled>
                     <ListOfGifs gifs={gifs} />
                     <div id="visor" ref={externalRef}></div>
                 </>
@@ -44,11 +44,21 @@ const SearchResults = ({ params }) => {
     )
 }
 
-const ButtonStyled = styled.button`
-    background: #1f1f1f;
-    color: white;
-    font-size: 1.05rem;
-    padding: 1rem 3rem;
+const TitleStyled = styled.h3`
+    padding: 2rem 0;
+    text-transform: uppercase;
+    color: #52e2ca;
+
+    span {
+        color: rebeccapurple;
+    }
 `
+
+// const ButtonStyled = styled.button`
+//     background: #1f1f1f;
+//     color: white;
+//     font-size: 1.05rem;
+//     padding: 1rem 3rem;
+// `
 
 export default SearchResults

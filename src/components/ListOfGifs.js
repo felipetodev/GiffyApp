@@ -3,7 +3,7 @@ import Gif from './Gif'
 
 const ListOfGifs = ({ gifs }) => {
     return (
-        <ListOfGifsStyled>
+        <ListOfGifsStyled className='grid-wrap'>
             {
             gifs.map(singleGif => (
                 <Gif
@@ -20,6 +20,9 @@ const ListOfGifs = ({ gifs }) => {
 
 const ListOfGifsStyled = styled.div`
     min-height: 100vh;
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 `
 
 export default ListOfGifs
