@@ -7,6 +7,7 @@ test('home work as expected', async() => {
   expect(gifLink).toBeVisible()
 })
 
+/*
 test('search form could be used', async() => {
   render(<App />)
   const input = await screen.findByRole('textbox')
@@ -18,3 +19,4 @@ test('search form could be used', async() => {
   const title = await screen.findByText('snk')
   expect(title).toBeVisible()
 })
+*/
